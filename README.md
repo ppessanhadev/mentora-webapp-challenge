@@ -46,3 +46,5 @@ Como toda aplicação, durante o desenvolvimento acredito que existam alguns pas
 - [ ] Virtualizar conteúdo listado em relacão as mentorias
 - [ ] Paginar com infinite loading e virtualizar conteúdo de comentários
 - [ ] Atualizacão de comentários dinâmicos ao postar (publicou -> atualizou)
+- [ ] Testes unitários com vitest e e2e com playwright
+- [ ] Pipes de CI/CD no github actions para testes e deploy
