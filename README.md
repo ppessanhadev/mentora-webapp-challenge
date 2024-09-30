@@ -1,36 +1,48 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+## Mentora webapp challenge
 
-## Getting Started
+Essa aplicação tem como objetivo conter toda a parte visual da aplicação de listagem de mentorias em conjunto com os feedbacks associados.
 
-First, run the development server:
+Ela funciona em conjunto com o backend desenvolvido [nesse repositório](https://github.com/ppessanhadev/mentora-backend-challenge/tree/main)
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+### Overview
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Para o desenvolvimento, foram utilizada as seguintes ferramentas:
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+- [Next 14](https://nextjs.org/docs) como framework principal para o desenvolvimento do frontend
+- [Tailwind CSS](https://django-ninja.dev/) para estilização geral da aplicação
+- [shadcn/ui] para utilização de componentes pre-estilizados
+- [zod](https://zod.dev/) e [react-hook-form](https://react-hook-form.com/) para lidar com formulários de maneira simplificada
+- [prettier](https://prettier.io/) + [eslint](https://eslint.org/) para manter uma formatação consistente do código
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+A aplicação está deployada e funcionando na [vercel](https://render.com/), e é possivel visualizar consumindo os conteúdos do [backend](https://mentora-backend-challenge.onrender.com/api/docs)
 
-## Learn More
+Ao total, foram desenvolvidas apenas 2 páginas, já que acredito que fazia mais sentido incluir os comentários realizados na página de detalhes, as paginas desenvolvidas foram:
 
-To learn more about Next.js, take a look at the following resources:
+- `/`: Página home, ao qual é listado todas as mentorias com infinite loading ao se manter scrollando
+- `/details/{id}`: Página de detalhes da mentoria, ao qual é possivel visualizar sua descrição, adicionar um feedback e visualizar todos os comentários realizados.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+**OBS**: pelo backend ser free tier, a api "dorme" a cada 15 minutos de inatividade, então, caso não retorne de inicio, atualize a página para conseguir visualizar/atualizar o conteúdo.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+### Rodando a aplicação
 
-## Deploy on Vercel
+A aplicação foi desenvolvida com o gerenciador de pacotes [pnpm](https://pnpm.io/pt/) e o node na versão 20+, é recomendado a instalação do gerenciador para rodar a aplicacão.
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+**Rodando localmente**
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+Para rodar localmente execute os seguintes comandos:
+
+1. `cp .env.example .env`
+2. `pnpm install`
+3. `pnpm dev`
+
+A aplicacão estará rodando na url: `http://localhost:3000` caso a porta esteja disponivel.
+
+### Possiveis melhorias
+
+Como toda aplicação, durante o desenvolvimento acredito que existam alguns passos para tornar o webapp melhor, esses são algumas possiveis implementações para o futuro:
+
+- [ ] Correção de bug ao enviar formulário, voltar as estrelas para 5 (atualmente é mantido seu ultimo estado)
+- [ ] Correcão de timeout caso a API esteja em modo de hibernação
+- [ ] Virtualizar conteúdo listado em relacão as mentorias
+- [ ] Paginar com infinite loading e virtualizar conteúdo de comentários
+- [ ] Atualizacão de comentários dinâmicos ao postar (publicou -> atualizou)
