@@ -1,10 +1,10 @@
 'use client';
 
-import { navigate } from '@/actions/redirect';
+import Link from 'next/link';
+
 import { Button } from '@/components/ui/button';
 import { useCurrencyFormatter } from '@/hooks/useCurrecyFormatter';
 import { Card, CardContent, CardTitle } from '@/components/ui/card';
-import Link from 'next/link';
 
 type ListCardProps = { id: number; title: string; price: number };
 
