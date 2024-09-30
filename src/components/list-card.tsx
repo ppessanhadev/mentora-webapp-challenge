@@ -4,18 +4,12 @@ import { navigate } from '@/actions/redirect';
 import { Button } from '@/components/ui/button';
 import { useCurrencyFormatter } from '@/hooks/useCurrecyFormatter';
 import { Card, CardContent, CardTitle } from '@/components/ui/card';
+import Link from 'next/link';
 
 type ListCardProps = { id: number; title: string; price: number };
 
 export function ListCard({ id, title, price }: ListCardProps) {
   const { transformed } = useCurrencyFormatter(price);
-
-  function redirect(to: 'details' | 'comments') {
-    if (to.includes('details')) {
-      navigate(`/details/${id}`);
-    } else {
-    }
-  }
 
   return (
     <Card className="p-6 flex flex-col justify-between">
@@ -25,11 +19,17 @@ export function ListCard({ id, title, price }: ListCardProps) {
       </CardTitle>
 
       <CardContent className="p-0 flex flex-col gap-2">
-        <Button variant="outline" onClick={() => redirect('details')}>
-          Ver detalhes
-        </Button>
+        <Link href={`/details/${id}`} scroll={true}>
+          <Button variant="outline" className="w-full">
+            Ver detalhes
+          </Button>
+        </Link>
 
-        <Button variant="outline">Ver comentários</Button>
+        <Link href={`/details/${id}#comments-section`} scroll={true}>
+          <Button variant="outline" className="w-full">
+            Ver comentários
+          </Button>
+        </Link>
       </CardContent>
     </Card>
   );

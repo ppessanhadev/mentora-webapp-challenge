@@ -1,6 +1,7 @@
 'use client';
 
 import { z } from 'zod';
+import { useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
 
@@ -34,6 +35,7 @@ type FormSchema = z.infer<typeof formSchema>;
 
 export function CommentForm() {
   const params = useParams();
+  const [loading, setLoading] = useState(false);
 
   const form = useForm<FormSchema>({
     resolver: zodResolver(formSchema),
@@ -41,12 +43,15 @@ export function CommentForm() {
   });
 
   async function onSubmit(values: FormSchema) {
+    setLoading(true);
     await fetch('/api/feedback', {
       method: 'POST',
       body: JSON.stringify({ ...values, mentoring_id: +params.id }),
     });
+    setLoading(false);
 
     form.reset();
+    form.setValue('stars', 5);
   }
 
   return (
@@ -104,7 +109,11 @@ export function CommentForm() {
           )}
         />
 
-        <Button type="submit" className="w-full bg-green-700 text-white hover:bg-green-900">
+        <Button
+          type="submit"
+          className="w-full bg-green-700 text-white hover:bg-green-900"
+          disabled={loading}
+        >
           Enviar comentário
         </Button>
       </form>
