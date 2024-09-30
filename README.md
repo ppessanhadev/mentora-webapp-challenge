@@ -14,9 +14,9 @@ Para o desenvolvimento, foram utilizada as seguintes ferramentas:
 - [zod](https://zod.dev/) e [react-hook-form](https://react-hook-form.com/) para lidar com formulários de maneira simplificada
 - [prettier](https://prettier.io/) + [eslint](https://eslint.org/) para manter uma formatação consistente do código
 
-A aplicação está deployada e funcionando na [vercel](https://render.com/), e é possivel visualizar consumindo os conteúdos do [backend](https://mentora-backend-challenge.onrender.com/api/docs)
+A aplicação está em cloud e funcionando na [vercel](https://vercel.com/), e é possível acessar o [front por esse link](https://mentora-webapp-challenge.vercel.app/) e visualizar as rotas consumidas do [backend por esse link](https://mentora-backend-challenge.onrender.com/api/docs).
 
-Ao total, foram desenvolvidas apenas 2 páginas, já que acredito que fazia mais sentido incluir os comentários realizados na página de detalhes, as paginas desenvolvidas foram:
+Ao total, foram desenvolvidas apenas 2 páginas, no qual acreditava fazer mais sentido incluir os comentários realizados na página de detalhes, as paginas desenvolvidas foram:
 
 - `/`: Página home, ao qual é listado todas as mentorias com infinite loading ao se manter scrollando
 - `/details/{id}`: Página de detalhes da mentoria, ao qual é possivel visualizar sua descrição, adicionar um feedback e visualizar todos os comentários realizados.
