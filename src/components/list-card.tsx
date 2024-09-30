@@ -1,11 +1,21 @@
+'use client';
+
+import { navigate } from '@/actions/redirect';
 import { Button } from '@/components/ui/button';
-import { Card, CardContent, CardTitle } from '@/components/ui/card';
 import { useCurrencyFormatter } from '@/hooks/useCurrecyFormatter';
+import { Card, CardContent, CardTitle } from '@/components/ui/card';
 
-type ListCardProps = { title: string; price: number };
+type ListCardProps = { id: number; title: string; price: number };
 
-export function ListCard({ title, price }: ListCardProps) {
+export function ListCard({ id, title, price }: ListCardProps) {
   const { transformed } = useCurrencyFormatter(price);
+
+  function redirect(to: 'details' | 'comments') {
+    if (to.includes('details')) {
+      navigate(`/details/${id}`);
+    } else {
+    }
+  }
 
   return (
     <Card className="p-6 flex flex-col justify-between">
@@ -15,7 +25,10 @@ export function ListCard({ title, price }: ListCardProps) {
       </CardTitle>
 
       <CardContent className="p-0 flex flex-col gap-2">
-        <Button variant="outline">Ver detalhes</Button>
+        <Button variant="outline" onClick={() => redirect('details')}>
+          Ver detalhes
+        </Button>
+
         <Button variant="outline">Ver comentários</Button>
       </CardContent>
     </Card>
