@@ -16,7 +16,7 @@ export function ListCard({ title, price }: ListCardProps) {
 
       <CardContent className="p-0 flex flex-col gap-2">
         <Button variant="outline">Ver detalhes</Button>
-        <Button variant="outline">Comentar</Button>
+        <Button variant="outline">Ver comentários</Button>
       </CardContent>
     </Card>
   );
