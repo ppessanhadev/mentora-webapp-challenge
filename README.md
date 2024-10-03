@@ -10,7 +10,7 @@ Para o desenvolvimento, foram utilizada as seguintes ferramentas:
 
 - [Next 14](https://nextjs.org/docs) como framework principal para o desenvolvimento do frontend
 - [Tailwind CSS](https://django-ninja.dev/) para estilização geral da aplicação
-- [shadcn/ui] para utilização de componentes pre-estilizados
+- [shadcn/ui](https://ui.shadcn.com/) para utilização de componentes pre-estilizados
 - [zod](https://zod.dev/) e [react-hook-form](https://react-hook-form.com/) para lidar com formulários de maneira simplificada
 - [prettier](https://prettier.io/) + [eslint](https://eslint.org/) para manter uma formatação consistente do código
 
@@ -21,7 +21,7 @@ Ao total, foram desenvolvidas apenas 2 páginas, no qual acreditava fazer mais s
 - `/`: Página home, ao qual é listado todas as mentorias com infinite loading ao se manter scrollando
 - `/details/{id}`: Página de detalhes da mentoria, ao qual é possivel visualizar sua descrição, adicionar um feedback e visualizar todos os comentários realizados.
 
-**OBS**: pelo backend ser free tier, a api "dorme" a cada 15 minutos de inatividade, então, caso não retorne de inicio, atualize a página para conseguir visualizar/atualizar o conteúdo.
+**OBS**: pelo backend ser free tier, a API "dorme" a cada 15 minutos por inatividade, então, caso não retorne de inicio, atualize a página para conseguir visualizar/atualizar o conteúdo.
 
 ### Rodando a aplicação
 
@@ -45,6 +45,6 @@ Como toda aplicação, durante o desenvolvimento acredito que existam alguns pas
 - [ ] Correcão de timeout caso a API esteja em modo de hibernação
 - [ ] Virtualizar conteúdo listado em relacão as mentorias
 - [ ] Paginar com infinite loading e virtualizar conteúdo de comentários
-- [ ] Atualizacão de comentários dinâmicos ao postar (publicou -> atualizou)
+- [ ] Atualização de comentários dinâmicos ao postar (publicou -> atualizou)
 - [ ] Testes unitários com vitest e e2e com playwright
 - [ ] Pipes de CI/CD no github actions para testes e deploy
